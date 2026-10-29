@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../curso"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"new": "cpp",
+			"iostream": "cpp"
+		}
+	}
+}
