@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+int a, b;
+while (cin >> a >> b && (a != 0 || b != 0)) {
+    cout << "Suma: " << a + b << '\n';
+}
+
+}
+
+/*
+
+// 1. Validar rango
+while (cin >> n && n >= 1 && n <= 100)
+// 2. Múl􀆟ples cen􀆟nelas
+while (cin >> n && n != -1 && n != 0)
+// 3. Centro de mesa (0 0)
+while (cin >> x >> y && (x != 0 || y != 0))
+// 4. Valores posi􀆟vos
+while (cin >> n >> m && n > 0 && m > 0)
+// 5. Hasta encontrar un número específico
+while (cin >> palabra && palabra != "FIN" && palabra != "END")
+*/
