@@ -12,8 +12,7 @@ void printName(int i, int n) {
 }
 
 int main() {
-    int n;
-    cout << "Ingresa N: ";    cin >> n; //cantidad de veces
+    int n=5;//cantidad de veces
     
     // Llamada inicial con i = 1
     printName(1, n); 
