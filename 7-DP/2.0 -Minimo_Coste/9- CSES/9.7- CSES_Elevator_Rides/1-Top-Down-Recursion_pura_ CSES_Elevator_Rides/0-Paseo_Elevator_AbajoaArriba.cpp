@@ -6,23 +6,21 @@ vector<int> pesos;
 vector<int>  memo;  
 const int INF = 1e9;
 
-int minimoViaje(int i) { 
+int minimoViaje(int capacidad_actual) { 
  
     // Caso base
-    if (i == n) return 0;  //ya llegue
+    if (capacidad_actual == 0) return 0;  //ya llegue
     
     // Memoización
-     if (memo[i] != -1) return memo[i];
+     if (memo[capacidad_actual] != -1) return memo[capacidad_actual];
  
     int mejor = INF;   
 
-    for (int j = i + 1; j <= min(n, i + 3); j++) {
-        int distancia  = (j-i);
-        int pesosalto = pesos[j-1] + distancia*distancia;
-        mejor = min(mejor, minimoViaje(j)+pesosalto); //costo de la posicion anterior + costo de haber saltado hasta aqui
+    for (int j = 0; j < n; j++) {
+        mejor = 1+min(mejor, minimoViaje(capacidad_actual-pesos[j])); //costo de la posicion anterior + costo de haber saltado hasta aqui
     }
       
-      return memo[i] = mejor;
+      return memo[n] = mejor;
 }
 
 int main() {
@@ -32,51 +30,11 @@ int main() {
     pesos = {4,8,6,1}; //cuanto pesa cada persona
 
     memo.assign(n + 1, -1);
-    int res =minimoViaje(0); 
+    int res =minimoViaje(x); 
     cout << "Minimo Costo subir Escalera: " <<  res << endl;  
    return 0; 
     
 }
 
- /*
  
-  n = 4, costs = [1,2,3,4]
-  
-  Verificación rápida a mano (confirmando tu árbol)
-minimoViaje(4) = 0 (caso base)
-
-minimoViaje(3): solo j=4 → 4 + 1 + 0 = 5 → 5
-
-minimoViaje(2):
-
-j=3 → 3 + 1 + 5 = 9
-
-j=4 → 4 + 4 + 0 = 8
-
-→ 8
-
-minimoViaje(1):
-
-j=2 → 2 + 1 + 8 = 11
-
-j=3 → 3 + 4 + 5 = 12
-
-j=4 → 4 + 9 + 0 = 13
-
-→ 11
-
-minimoViaje(0):
-
-j=1 → 1 + 1 + 11 = 13 ✅
-
-j=2 → 2 + 4 + 8 = 14
-
-j=3 → 3 + 9 + 5 = 17
-
-→ 13
-
-Coincide con tu análisis del árbol y con el esperado 13. ✅
-
-
- */ 
   
